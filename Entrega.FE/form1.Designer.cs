@@ -37,6 +37,8 @@
             this.btnMostrar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lstContactos = new System.Windows.Forms.ListBox();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnEsconder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -134,12 +136,40 @@
             this.lstContactos.TabIndex = 7;
             this.lstContactos.Visible = false;
             // 
+            // btnEditar
+            // 
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Location = new System.Drawing.Point(656, 455);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(89, 30);
+            this.btnEditar.TabIndex = 8;
+            this.btnEditar.Text = "EDITAR";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Visible = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnEsconder
+            // 
+            this.btnEsconder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEsconder.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEsconder.Location = new System.Drawing.Point(278, 455);
+            this.btnEsconder.Name = "btnEsconder";
+            this.btnEsconder.Size = new System.Drawing.Size(120, 71);
+            this.btnEsconder.TabIndex = 9;
+            this.btnEsconder.Text = "ESCONDER Lista y \"EDITAR\"";
+            this.btnEsconder.UseVisualStyleBackColor = true;
+            this.btnEsconder.Visible = false;
+            this.btnEsconder.Click += new System.EventHandler(this.btnEsconder_Click);
+            // 
             // form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1012, 565);
+            this.Controls.Add(this.btnEsconder);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.lstContactos);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnMostrar);
@@ -167,6 +197,8 @@
         private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.ListBox lstContactos;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnEsconder;
     }
 }
 

@@ -13,20 +13,20 @@ namespace Entrega.FE
 {
     public partial class form1 : Form
     {
-        
+
         //array de contacto para guardar y ver los susodichos
 
         private List<Contacto> listaContactos = new List<Contacto>();
 
-        
+
 
         public form1()
         {
             InitializeComponent();
-            
+
         }
 
-        
+
 
         //actualizamos la lista de contactos con un metodo (no me sale dejarlo en mi clase y llamarlo posteriormente para hacer su tarea correspondiente)
         private void ActualizarListaContactos()
@@ -60,10 +60,10 @@ namespace Entrega.FE
                     nombre = txtNombre.Text,
                     telefono = txtNumero.Text,
 
-                    
+
                 };
 
-                
+
                 //agregamos el contacto a la lista 
                 listaContactos.Add(nuevocontacto);
 
@@ -82,31 +82,49 @@ namespace Entrega.FE
             }
 
 
-            
+
 
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (lstContactos.SelectedIndex >= 0)
+            if (lstContactos.Visible == true)
             {
-                listaContactos.RemoveAt(lstContactos.SelectedIndex);
-                ActualizarListaContactos();
+                if (lstContactos.SelectedIndex >= 0)
+                {
+                    listaContactos.RemoveAt(lstContactos.SelectedIndex);
+                    ActualizarListaContactos();
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona un contacto para eliminar.");
+                }
             }
             else
             {
-                MessageBox.Show("Por favor, selecciona un contacto para eliminar.");
+                MessageBox.Show("Minimo tener 1 contacto cargado o haber puesto visible la lista, contacto cargados: " + listaContactos.Count);
             }
         }
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Total de contactos: " +listaContactos.Count);
+            MessageBox.Show("Total de contactos: " + listaContactos.Count);
             lstContactos.Visible = true;
             txtNombre.Text.ToUpper();
-            
+            btnEsconder.Visible = true;
+            btnEditar.Visible = true;
         }
 
-       
+        private void btnEsconder_Click(object sender, EventArgs e)
+        {
+            btnEditar.Visible = false;
+            lstContactos.Visible = false;
+            btnEsconder.Visible = false;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
