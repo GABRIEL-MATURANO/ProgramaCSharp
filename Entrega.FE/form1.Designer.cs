@@ -39,6 +39,7 @@
             this.lstContactos = new System.Windows.Forms.ListBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEsconder = new System.Windows.Forms.Button();
+            this.btnEditado = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -162,12 +163,26 @@
             this.btnEsconder.Visible = false;
             this.btnEsconder.Click += new System.EventHandler(this.btnEsconder_Click);
             // 
+            // btnEditado
+            // 
+            this.btnEditado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditado.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditado.Location = new System.Drawing.Point(656, 505);
+            this.btnEditado.Name = "btnEditado";
+            this.btnEditado.Size = new System.Drawing.Size(89, 30);
+            this.btnEditado.TabIndex = 10;
+            this.btnEditado.Text = "GUARDAR";
+            this.btnEditado.UseVisualStyleBackColor = true;
+            this.btnEditado.Visible = false;
+            this.btnEditado.Click += new System.EventHandler(this.btnEditado_Click);
+            // 
             // form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1012, 565);
+            this.Controls.Add(this.btnEditado);
             this.Controls.Add(this.btnEsconder);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.lstContactos);
@@ -199,6 +214,7 @@
         private System.Windows.Forms.ListBox lstContactos;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEsconder;
+        private System.Windows.Forms.Button btnEditado;
     }
 }
 

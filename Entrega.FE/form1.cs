@@ -18,6 +18,7 @@ namespace Entrega.FE
 
         private List<Contacto> listaContactos = new List<Contacto>();
 
+        Contacto contactoAEditar = new Contacto();
 
 
         public form1()
@@ -55,13 +56,8 @@ namespace Entrega.FE
             {
 
                 // creo el contacto nuevo con lo que ingreso
-                Contacto nuevocontacto = new Contacto()
-                {
-                    nombre = txtNombre.Text,
-                    telefono = txtNumero.Text,
-
-
-                };
+                Contacto nuevocontacto = new Contacto(txtNombre.Text, txtNumero.Text);
+                
 
 
                 //agregamos el contacto a la lista 
@@ -120,11 +116,49 @@ namespace Entrega.FE
             btnEditar.Visible = false;
             lstContactos.Visible = false;
             btnEsconder.Visible = false;
+            btnEditado.Visible = false; 
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (lstContactos.Visible == true)
+            {
+                if (lstContactos.SelectedIndex >= 0)
+                {
+                    string[] datosContacto = lstContactos.Text.Split('-');
+                    txtNombre.Text = datosContacto[0];
+                    txtNumero.Text = datosContacto[1];
+                    contactoAEditar.nombre = datosContacto[0];
+                    contactoAEditar.telefono = datosContacto[1];
+                    btnEditado.Visible = true;
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona un contacto para eliminar.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Minimo tener 1 contacto cargado o haber puesto visible la lista, contacto cargados: " + listaContactos.Count);
+            }
+        }
+
+        private void btnEditado_Click(object sender, EventArgs e)
+        {
             
+
+            foreach (Contacto contactoTemp in listaContactos)
+            {
+                if (contactoTemp.nombre == contactoAEditar.nombre.ToLower() && contactoTemp.telefono == contactoAEditar.telefono)
+                {
+                    listaContactos.Remove(contactoTemp);
+                    
+                    break;
+                }
+            }
+            listaContactos.Add(new Contacto(txtNombre.Text, txtNumero.Text));
+            ActualizarListaContactos();
         }
     }
 }
